@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+  width: 95%;
+  max-width: 800px;
+  margin: 6rem auto 0;
+}
+
+.user-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.user-card {
+  display: flex;
+  padding: 0.5rem;
+  border: 1px solid grey;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.user-card:hover {
+  background-color: #0a0a0a;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.info {
+  text-align: left;
+  margin-left: 1rem;
+}
+
+.info h3,
+.info p {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .user-container {
+    grid-template-columns: 1fr;
+  }
+}
