@@ -23,7 +23,8 @@ h1 {
   color: white;
 }
 
-p {
+p,
+a {
   color: #9c9c9c;
 }
 

@@ -1,30 +1,21 @@
-import { useEffect, useState } from "react";
-import UserCard from "./components/UserCard";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Home from "./components/Home";
+import Post from "./components/Post";
 import "./App.css";
+import { SkeletonTheme } from "react-loading-skeleton";
 
 function App() {
-  const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((users) => {
-        setUsers(users);
-        setIsLoading(false);
-      });
-  }, []);
-
   return (
     <div className="App">
-      <h1 style={{ marginBottom: "1.5rem" }}>Users</h1>
-      <div className="user-container">
-        {isLoading && <p>Loading...</p>}
-
-        {users.map((user) => (
-          <UserCard user={user} key={user.id} />
-        ))}
-      </div>
+      <SkeletonTheme baseColor="#313131" highlightColor="#525252">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/post/:userId" element={<Post />} />
+          </Routes>
+        </BrowserRouter>
+      </SkeletonTheme>
     </div>
   );
 }
